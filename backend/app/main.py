@@ -35,6 +35,19 @@ app.add_middleware(
 # ----------------------
 # PRODUCTS
 # ----------------------
+@app.get("/")
+def root():
+    return {
+        "message": "Inventory Management API",
+        "status": "running"
+    }
+
+
+@app.get("/healthz")
+def health():
+    return {
+        "status": "healthy"
+    }
 
 @app.post("/products")
 def create_product(
